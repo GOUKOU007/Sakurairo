@@ -19,13 +19,12 @@ get_header();
     <div id="archives-content">      
     <?php       
         $the_query = new WP_Query( 'posts_per_page=-1&ignore_sticky_posts=1' );      
-        $year=0; $mon=0; $i=0; $j=0;      
+        $year=0; $mon=0;   
         $all = array();      
         $output = '';      
         while ( $the_query->have_posts() ) : $the_query->the_post();      
             $year_tmp = get_the_time('Y');      
-            $mon_tmp = get_the_time('n');      
-            $y=$year; $m=$mon;      
+            $mon_tmp = get_the_time('n');           
             if ($mon != $mon_tmp && $mon > 0) $output .= '</div></div>';      
             if ($year != $year_tmp) { // 输出年份      
                 $year = $year_tmp;      
